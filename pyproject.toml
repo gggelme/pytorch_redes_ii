@@ -1,0 +1,21 @@
+[project]
+name = "redes-neuronales-ii"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gggelme", email = "gelmettisantiago@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.11.0",
+    "torchaudio>=2.11.0",
+    "torchvision>=0.26.0",
+]
+
+[project.scripts]
+redes-neuronales-ii = "redes_neuronales_ii:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
