@@ -8,13 +8,18 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "accelerate>=1.15.0",
+    "datasets>=5.1.0",
     "matplotlib>=3.11.1",
     "pandas>=3.0.5",
     "scikit-learn>=1.9.0",
     "torch>=2.11.0",
+    "torch-geometric>=2.8.1",
     "torchaudio>=2.11.0",
     "torchvision>=0.26.0",
     "tqdm>=4.70.0",
+    "transformers>=5.20.2",
+    "umap-learn>=0.5.12",
 ]
 
 [project.scripts]
@@ -28,3 +33,16 @@ build-backend = "uv_build"
 dev = [
     "ipykernel>=7.3.0",
 ]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
